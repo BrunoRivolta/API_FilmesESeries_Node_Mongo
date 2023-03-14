@@ -7,10 +7,14 @@ npm init -y = inicia projeto
 
 npm install --save-dev nodemom  = instalacao do nodemom
 
+npm install express
+
 no pakage.json adicionar a linha   "type": "module",
 
+criar .gitignore = conteudo node_modules
 
-## Criando servidor basico
+
+## Criando servidor basico com HTTP
 
 criar servidor = server.js
 
@@ -55,3 +59,42 @@ server.listen(port, () => {
     console.log(`Servidor funcionando na http://localhost:${port}`)
 })
 ```
+
+## Criando APP.js e utilizar Express
+
+criar pasta src e arquivo app.js
+
+```
+import express from 'express'
+
+const app = express()
+
+const files = [                         //resposta
+    {filme: 'a novissa rebelde'},
+    {filme: 'e o vento levou'}
+]
+
+app.get('/', (req, res) => {              //rota /
+    res.status(200).send('Filmes API')
+})
+
+app.get('/livros', (req, res) => {       //rota /livros
+    res.status(200).json(livros)
+})
+
+export default app
+```
+
+Midificando o server.js para usar o app em ver de usar http
+
+```
+import app from './src/app.js'
+
+const port = process.env.PORT || 3000  //opçao de variavel de ambiente
+
+app.listen(port, () => {   //usando app
+    console.log(`Servidor funcionando na http://localhost:${port}`)
+})
+```
+
+Testar no postman
