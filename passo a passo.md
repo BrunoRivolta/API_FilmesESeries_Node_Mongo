@@ -33,3 +33,25 @@ Ja podemos fazer a requisição no postmam
 
 
 ## Colocando rotas
+
+```
+import http from 'http'
+
+const port = 3000
+
+const rotas = {                    //definindo rotas
+    '/': 'Curso de node',
+    '/filmes': 'Estou em filmes',
+    '/diretor': 'Diretor',
+    '/canal': 'Canal'
+}
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'})
+    res.end(rotas[req.url])     //adicionando a lista de rotas aos endereços do servidor
+})
+
+server.listen(port, () => {
+    console.log(`Servidor funcionando na http://localhost:${port}`)
+})
+```
