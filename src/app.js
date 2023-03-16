@@ -1,6 +1,6 @@
 import express from 'express'
 import db from './config/dbConnect.js'
-import filmes from './models/Filme.js'
+import movies from './models/Movies.js'
 
 db.on('error', console.log.bind(console, 'Erro conexão mongo'))
 db.once('open', () => {
@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 
 app.get('/filmes', async (req, res) => {
     try{
-        const allFilms = await filmes.find()
-        res.status(200).json(allFilms)
+        const allMovies = await movies.find()
+        res.status(200).json(allMovies)
     } catch (error) {
         console.log(error)
         res.status(500).send('Erro de conexao com o banco de dados')
