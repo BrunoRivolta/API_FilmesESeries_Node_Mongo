@@ -1,4 +1,10 @@
 import express from 'express'
+import db from './config/dbConnect.js'
+
+db.on('error', console.log.bind(console, 'Erro conexão mongo'))
+db.once('open', () => {
+    console.log('Conexão mongo feita com sucesso')
+})
 
 const app = express()
 
