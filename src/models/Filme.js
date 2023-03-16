@@ -11,6 +11,6 @@ const filmesSchema = new mongoose.Schema(
     }
 )
 
-const filmes = mongoose.model('filmes', filmesSchema)
+let filmes = mongoose.model('filmes', filmesSchema)
 
 export default filmes
