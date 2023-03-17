@@ -9,6 +9,6 @@ const directorsSchema = new mongoose.Schema(
     }
 )
 
-let movies = mongoose.model('movies', moviesSchema)
+let directors = mongoose.model('directors', directorsSchema)
 
-export default movies
+export default directors
