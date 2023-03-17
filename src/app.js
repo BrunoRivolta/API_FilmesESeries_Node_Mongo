@@ -15,16 +15,6 @@ app.get('/', (req, res) => {
     res.status(200).send('Filmes API')
 })
 
-app.get('/filmes', async (req, res) => {
-    try{
-        const allMovies = await movies.find()
-        res.status(200).json(allMovies)
-    } catch (error) {
-        console.log(error)
-        res.status(500).send('Erro de conexao com o banco de dados')
-    }
-})
-
 app.get('/filmes/:id', async (req, res) => {
     const id = req.params.id
     const index = await filmes.findIndex(item => item.id == id)
