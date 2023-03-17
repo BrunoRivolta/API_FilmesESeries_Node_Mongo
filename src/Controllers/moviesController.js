@@ -27,40 +27,36 @@ class MoviesController {
         try {
             const newMovie = new movies(req.body)
             newMovie.save()
-            res.status(201).send('Livro cadastrado com sucesso')
+            res.status(201).send('Filme cadastrado com sucesso')
         } catch (error) {
             console.log(error)
             res.status(500).send('Erro no servidor!')
         }
     }
 
+    static updateMovie = async (req, res) => {
+        try {
+            const id = req.params.id
+            const update = req.body
+            const updateMovie = await movies.findOneAndUpdate({_id: id}, update)
+            res.status(200).send('Filme atualizado com sucesso') 
+        } catch (error) {
+            console.log(error)
+            res.status(500).send('Erro no servidor!')
+        }
+    }
+
+    static deleteMovie = async (req, res) => {
+        try {
+            const id = req.params.id
+            const deleteMovie = await movies.findOneAndDelete({_id: id})
+            res.status(200).send(`Filme id: ${id}. Apagado com sucesso`)
+        } catch (error) {
+            console.log(error)
+            res.status(500).send('Erro no servidor!')
+        }
+    }
 
 }
 
 export default MoviesController
-
-/*
-
-.findOneAndUpdate
-app.put('/filmes/:id', async (req, res) => {
-    const {id} = req.params
-    const index = await filmes.findIndex(item => item.id == id)
-    filmes[index].filme = req.body.filme
-    res.status(200).json(filmes[index])
-})
-
-app.put('/filmes/:id', async (req, res) => {
-    const {id} = req.params
-    const index = await filmes.findIndex(item => item.id == id)
-    filmes[index].filme = req.body.filme
-    res.status(200).json(filmes[index])
-})
-
-app.delete('/filmes/:id', async (req, res) => {
-    const {id} = req.params
-    const index = await filmes.findIndex(item => item.id == id)
-    filmes.splice(index, 1)
-    res.status(200).send(`Filmes ${id} Apagado com sucesso`)
-})
- 
-*/
