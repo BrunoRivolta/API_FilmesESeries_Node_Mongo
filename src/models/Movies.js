@@ -5,8 +5,8 @@ const moviesSchema = new mongoose.Schema(
         id: {type: String},
         name: {type: String, required: true},
         year: {type: Number, required: true},
-        director: {type: mongoose.Schema.Types.ObjectId, required: true},
-        chanel: {type: mongoose.Schema.Types.ObjectId, required: true},
+        director_id: {type: mongoose.Schema.Types.ObjectId, required: true},
+        chanel_id: {type: mongoose.Schema.Types.ObjectId, required: true},
         img: {type: String, required: true}
     }
 )
