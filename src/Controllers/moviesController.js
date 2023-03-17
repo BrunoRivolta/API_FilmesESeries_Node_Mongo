@@ -13,7 +13,7 @@ class MoviesController {
     }
 
     static listMovieById = async (req, res) => {
-        try {atualizar
+        try {
             const id = req.params.id
             const movie = await movies.findOne({_id: id})
             res.status(200).json(movie)

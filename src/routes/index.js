@@ -1,5 +1,6 @@
 import express from 'express'
 import movies from './moviesRoutes.js'
+import channels from './channelsRoutes.js'
 
 
 const routes = app => {
@@ -9,7 +10,8 @@ const routes = app => {
 
     app.use(
         express.json(),
-        movies
+        movies,
+        channels
     )
 }
 
