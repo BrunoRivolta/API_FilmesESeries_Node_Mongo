@@ -26,7 +26,10 @@ https://github.com/BrunoRivolta/API_FilmesESeries_Node_Mongo
 
 ## Documentação Swagger
 
+A documentação swagger contém informações sobre todas as rotas e schemas da API.
+Acesse no link abaixo.
 
+http://35.175.126.10/api-docs
 
 
 ## Redes Sociais / Contato

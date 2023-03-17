@@ -27,7 +27,7 @@ class MoviesController {
         try {
             const newMovie = new movies(req.body)
             newMovie.save()
-            res.status(201).send('Filme cadastrado com sucesso')
+            res.status(201).json({message: "Filme cadastrado com sucesso"})
         } catch (error) {
             console.log(error)
             res.status(500).send('Erro no servidor!')
@@ -39,7 +39,7 @@ class MoviesController {
             const id = req.params.id
             const update = req.body
             const updateMovie = await movies.findOneAndUpdate({_id: id}, update)
-            res.status(200).send('Filme atualizado com sucesso') 
+            res.status(200).json({message: "Filme atualizado com sucesso"}) 
         } catch (error) {
             console.log(error)
             res.status(500).send('Erro no servidor!')
@@ -50,7 +50,7 @@ class MoviesController {
         try {
             const id = req.params.id
             const deleteMovie = await movies.findOneAndDelete({_id: id})
-            res.status(200).send(`Filme id: ${id}. Apagado com sucesso`)
+            res.status(200).json({message: `Filme id: ${id}. Apagado com sucesso`})
         } catch (error) {
             console.log(error)
             res.status(500).send('Erro no servidor!')

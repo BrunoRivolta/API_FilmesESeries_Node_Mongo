@@ -1,0 +1,289 @@
+{
+    "openapi": "3.0.0",                       
+    "info": {
+        "title": "API Filmes e Series",
+        "description": "Faz cadastro e consulta de filmes e series, diretores e canais onde os files estão disponiveis.",
+        "termsOfService": "http://35.175.126.10/terms",
+        "contact": {
+            "email": "brrivolta@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://35.175.126.10/",
+            "description": "API em produção"
+        },
+        {
+            "url": "http://localhost:3000",
+            "description": "API local (testes)"
+        }
+    ],
+    "paths": {
+        "/filmes": {
+            "get": {
+                "summary": "Lista os filmes e séries cadastrados",
+                "description": "Rota usada para trazer as informações dos filmes e séries",
+                "tags": ["Filmes"],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Faz o cadastro de filmes e séries.",
+                "description": "Rota usada para adicionar filmes e séries",
+                "tags": ["Filmes"],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Filmes"
+                            },
+                            "parameters": [
+                                {
+                                   "name": "id",
+                                   "in": "path",
+                                   "description": "id do item a ser atualizado",
+                                   "required": true,
+                                   "type": "string"
+                                }
+                             ],
+                            "examples": {
+                                "Filmes" : {
+                                    "value": {
+                                        "name": "StarWars Episodio VI - O Retorno de Jedi",
+                                        "year": 1983,
+                                        "director_id": "6412f585ffce6c642286c084",
+                                        "channel_id": "6412f5e1ffce6c642286c085",
+                                        "img": "https://pt.wikipedia.org/wiki/Ficheiro:ReturnOfTheJediPoster1983.jpg",
+                                        "type": "filme"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Filme cadastrado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/filmes/{id}": {
+            "get": {
+                "summary": "Lista filme ou séries cadastrados pelo ID",
+                "description": "Rota usada para trazer as informações de filmes ou séries pelo ID",
+                "tags": ["Filmes"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Filmes"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualiza o cadastro de filmes e séries pelo ID.",
+                "description": "Rota usada para atualizar filmes e séries pelo ID",
+                "tags": ["Filmes"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Filmes"
+                            },
+                            "examples": {
+                                "Filmes" : {
+                                    "value": {
+                                        "year": 2023
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Filme atualizado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleta o cadastro de um filme ou série pelo ID.",
+                "description": "Rota usada para apagar filmes e séries pelo ID",
+                "tags": ["Filmes"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Filme id:'id'. Apagado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Filmes" : {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "integer"
+                    },
+                    "director_id": {
+                        "type": "string"
+                    },
+                    "channel_id": {
+                        "type": "string"
+                    },
+                    "img": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Diretores" : {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "conutry": {
+                        "type": "integer"
+                    },
+                    "img": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Canais" : {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "img": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
