@@ -7,7 +7,8 @@ const moviesSchema = new mongoose.Schema(
         year: {type: Number, required: true},
         director_id: {type: mongoose.Schema.Types.ObjectId, required: true},
         chanel_id: {type: mongoose.Schema.Types.ObjectId, required: true},
-        img: {type: String, required: true}
+        img: {type: String, required: true},
+        type: {type: String}
     }
 )
 
