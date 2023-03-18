@@ -290,9 +290,9 @@
                             "examples": {
                                 "Diretores" : {
                                     "value": {
-                                        "name": "StarWars Episodio VI - O Retorno de Jedi",
-                                        "country": 1983,
-                                        "img": "https://pt.wikipedia.org/wiki/Ficheiro:ReturnOfTheJediPoster1983.jpg"
+                                        "name": "Fernando Meirelles",
+                                        "country": "Brasil",
+                                        "img": "https://www.ccxp.com.br/media/fernando-meirelles.jpeg"
                                     }
                                 }
                             }

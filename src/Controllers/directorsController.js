@@ -12,7 +12,7 @@ class DirectorsController {
         }
     }
 
-    static listDirectorsById = async (req, res) => {
+    static listDirectorById = async (req, res) => {
         try {
             const id = req.params.id
             const director = await directors.findOne({_id: id})
