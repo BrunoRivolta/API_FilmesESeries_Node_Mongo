@@ -33,8 +33,18 @@
                         "description": "OK",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Filmes"
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": [{
+                                            "id": "6412f4cfffce6c642286c080",
+                                            "name": "O Hobbit: Uma Jornada Inesperada",
+                                            "year": 2012,
+                                            "director_id": "6412f585ffce6c642286c084",
+                                            "channel_id": "6412f5e1ffce6c642286c085",
+                                            "img": "https://s2.glbimg.com/zyaaSEbf4qZ6BNkc778luqyVhkE=/984x0/05cul-200-dvd2-d30-img01.jpg",
+                                            "type": "filme"
+                                        },{"...": "..."}]
+                                    }
                                 }
                             }
                         }
@@ -212,6 +222,420 @@
                                     "Filmes" : {
                                         "value": {
                                             "message": "Filme id:'id'. Apagado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/diretores": {
+            "get": {
+                "summary": "Lista os diretores cadastrados",
+                "description": "Rota usada para trazer as informações dos diretores",
+                "tags": ["Diretores"],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Diretores" : {
+                                        "value": [{
+                                            "id": "6412f4cfffce6c642286c080",
+                                            "name": "Fernando Meirelles",
+                                            "country": "Brasil",
+                                            "img": "https://www.ccxp.com.br/media/fernando-meirelles.jpeg"
+                                        },{"...": "..."}]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Faz o cadastro de diretores.",
+                "description": "Rota usada para adicionar diretores",
+                "tags": ["Diretores"],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Diretores"
+                            },
+                            "parameters": [
+                                {
+                                   "name": "id",
+                                   "in": "path",
+                                   "description": "id do item a ser atualizado",
+                                   "required": true,
+                                   "type": "string"
+                                }
+                             ],
+                            "examples": {
+                                "Diretores" : {
+                                    "value": {
+                                        "name": "StarWars Episodio VI - O Retorno de Jedi",
+                                        "country": 1983,
+                                        "img": "https://pt.wikipedia.org/wiki/Ficheiro:ReturnOfTheJediPoster1983.jpg"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Diretor cadastrado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/diretores/{id}": {
+            "get": {
+                "summary": "Lista diretores cadastrados pelo ID",
+                "description": "Rota usada para trazer as informações dos diretores pelo ID",
+                "tags": ["Diretores"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Diretores"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualiza o cadastro dos diretores pelo ID.",
+                "description": "Rota usada para atualizar os diretores pelo ID",
+                "tags": ["Diretores"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Diretores"
+                            },
+                            "examples": {
+                                "Filmes" : {
+                                    "value": {
+                                        "country": "Brasil"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Diretor atualizado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleta o cadastro de um diretor pelo ID.",
+                "description": "Rota usada para apagar diretores pelo ID",
+                "tags": ["Diretores"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Diretor id:'id'. Apagado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/canais": {
+            "get": {
+                "summary": "Lista os canais cadastrados",
+                "description": "Rota usada para trazer as informações dos canais",
+                "tags": ["Canais"],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Canais" : {
+                                        "value": [{
+                                            "id": "6412f4cfffce6c642286c080",
+                                            "name": "Globo Play",
+                                            "img": "https://s3.glbimg.com/v1/AUTH_c7def7ff66fe4b13beac0810ffbf780f/secure/home-share-e7d30f4.png"
+                                        },{"...": "..."}]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Faz o cadastro de canais.",
+                "description": "Rota usada para adicionar canais",
+                "tags": ["Canais"],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Canais"
+                            },
+                            "parameters": [
+                                {
+                                   "name": "id",
+                                   "in": "path",
+                                   "description": "id do item a ser atualizado",
+                                   "required": true,
+                                   "type": "string"
+                                }
+                             ],
+                            "examples": {
+                                "Diretores" : {
+                                    "value": {
+                                        "name": "Disney",
+                                        "img": "https://m.media-amazon.com/images/I/712ui3rj1RL.png"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Canal cadastrado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/canais/{id}": {
+            "get": {
+                "summary": "Lista canais cadastrados pelo ID",
+                "description": "Rota usada para trazer as informações dos canais pelo ID",
+                "tags": ["Canais"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Canais"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualiza o cadastro dos canais pelo ID.",
+                "description": "Rota usada para atualizar os canais pelo ID",
+                "tags": ["Canais"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Canais"
+                            },
+                            "examples": {
+                                "Filmes" : {
+                                    "value": {
+                                        "name": "NetFlix"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Canal atualizado com sucesso"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description":"Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleta o cadastro de um canal pelo ID.",
+                "description": "Rota usada para apagar canais pelo ID",
+                "tags": ["Canais"],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                       "name": "id",
+                       "in": "path",
+                       "description": "id do item a ser atualizado",
+                       "required": true,
+                       "type": "string"
+                    }
+                 ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Filmes" : {
+                                        "value": {
+                                            "message": "Canal id:'id'. Apagado com sucesso"
                                         }
                                     }
                                 }
