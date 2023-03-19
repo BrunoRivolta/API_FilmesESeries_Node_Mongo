@@ -35,7 +35,7 @@ describe('POST em /diretores', () => {
 let idTeste
 
 describe('GET em /diretores', () => {
-	it('Deve litar todos os diretores cadastrados', async () => {
+	it('Deve listar todos os diretores cadastrados', async () => {
 		const resposta = await request(app)
 			.get('/diretores')
 			.expect(200)
@@ -48,7 +48,7 @@ describe('GET em /diretores', () => {
 })
 
 describe('GET em /diretores/id', () => {
-	it('Deve mostrar informacoes do canal pelo id', async () => {
+	it('Deve mostrar informacoes do diretor pelo id', async () => {
 		const resposta = await request(app)
 			.get('/diretores/641607ccea9cb7f25fae3df6')
 			.expect(200)
@@ -59,7 +59,7 @@ describe('GET em /diretores/id', () => {
 
 
 describe('PUT em /diretores', () => {
-	it('Deve atualizar dados de um canal', async () => {
+	it('Deve atualizar dados de um diretor', async () => {
 		const resposta = await request(app)
 			.put(`/diretores/${idTeste}`)
 			.send(
@@ -76,7 +76,7 @@ describe('PUT em /diretores', () => {
 })
 
 describe('DELETE em /diretores', () => {
-	it('Deve apagar dados de um canal', async () => {
+	it('Deve apagar dados de um diretor', async () => {
 		const resposta = await request(app)
 			.delete(`/diretores/${idTeste}`)
 			.expect(200)

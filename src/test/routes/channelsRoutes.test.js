@@ -34,7 +34,7 @@ describe('POST em /canais', () => {
 let idTeste
 
 describe('GET em /canais', () => {
-	it('Deve litar todos os canais cadastrados', async () => {
+	it('Deve listar todos os canais cadastrados', async () => {
 		const resposta = await request(app)
 			.get('/canais')
 			.expect(200)
