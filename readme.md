@@ -6,6 +6,7 @@ Faz o cadastro de filmes e séries juntamente com os diretores e cainais onde es
 ![Express.js](https://img.shields.io/badge/express.js-%23323330.svg?style=for-the-badge&logo=express&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
 ![MongoDB](https://img.shields.io/badge/MongoDB-%23323330.svg?style=for-the-badge&logo=mongodb&logoColor=%2347A248) 
+![Jest](https://img.shields.io/badge/jest-%23323330.svg?style=for-the-badge&logo=jest&logoColor=%23C21325)
 ![AWS](https://img.shields.io/badge/AWS-%23323330.svg?style=for-the-badge&logo=AmazonAWS&logoColor=%23FF9900)
 ![Docker](https://img.shields.io/badge/docker-%23323330.svg?style=for-the-badge&logo=docker&logoColor=%232496ED)
 
@@ -30,6 +31,13 @@ A documentação swagger contém informações sobre todas as rotas e schemas da
 Acesse no link abaixo.
 
 http://35.175.126.10/api-docs
+
+
+## Testes
+
+Forem feitos testes em todas as rotas da aplicacao, o resultado pode ser consultado no link abaixo
+
+http://35.175.126.10/jest
 
 
 ## Redes Sociais / Contato
