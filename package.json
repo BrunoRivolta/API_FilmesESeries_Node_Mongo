@@ -7,7 +7,9 @@
   "scripts": {
     "start": "nodemon server.js",
     "dev": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit --maxWorkers=1 --verbose",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
   },
   "author": "Bruno Rivolta",
   "license": "ISC",
@@ -18,6 +20,8 @@
     "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3"
   }
 }

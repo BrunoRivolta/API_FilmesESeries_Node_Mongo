@@ -2,7 +2,7 @@ import express from 'express'
 import db from './config/dbConnect.js'
 import routes from './routes/index.js'
 import swaggerUi from 'swagger-ui-express'
-import swaggerConf from './swagger/swagger.json' assert { type: 'json' }
+//import swaggerConf from './swagger/swagger.json' assert { type: 'json' }
 
 db.on('error', console.log.bind(console, 'Erro conexão com banco de dados'))
 db.once('open', () => {
@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 	next()
 })
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConf))
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConf))
 
 routes(app)
 
