@@ -1,0 +1,21 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: rgb(190, 190, 190);
+    text-align: center;
+}
+
+img {
+    width: 50%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(2, 94, 117);
+}
+
+a:hover {
+    color: rgb(14, 145, 68);
+}

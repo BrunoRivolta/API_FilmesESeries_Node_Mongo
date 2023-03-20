@@ -1,6 +1,6 @@
 # API Filmes e Séries - Node.js
 
-Faz o cadastro de filmes e séries juntamente com os diretores e cainais onde estão disponiveis.
+Faz o cadastro de filmes e séries juntamente com os diretores e canais onde estão disponíveis.
 
 ![NodeJS](https://img.shields.io/badge/node.js-%23323330?style=for-the-badge&logo=node.js&logoColor=%23339933) 
 ![Express.js](https://img.shields.io/badge/express.js-%23323330.svg?style=for-the-badge&logo=express&logoColor=white)
@@ -13,7 +13,7 @@ Faz o cadastro de filmes e séries juntamente com os diretores e cainais onde es
 
 ## Deploy
 
-O deploy foi em uma instancia EC2 na AWS usando Docker
+O deploy foi feito em uma instância EC2 na AWS usando Docker.
 
 http://35.175.126.10/
 
@@ -35,7 +35,7 @@ http://35.175.126.10/api-docs
 
 ## Testes
 
-Forem feitos testes em todas as rotas da aplicacao, o resultado pode ser consultado no link abaixo
+Forem feitos testes em todas as rotas da aplicação, o resultado pode ser consultado no link abaixo
 
 http://35.175.126.10/jest
 
