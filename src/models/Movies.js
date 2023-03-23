@@ -8,6 +8,7 @@ const moviesSchema = new mongoose.Schema(
         director_id: {type: mongoose.Schema.Types.ObjectId, required: true},
         channel_id: {type: mongoose.Schema.Types.ObjectId, required: true},
         img: {type: String, required: true},
+        trailer: {type: String, required: true},
         type: {type: String}
     }
 )
