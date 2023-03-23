@@ -42,6 +42,7 @@
                                             "director_id": "6412f585ffce6c642286c084",
                                             "channel_id": "6412f5e1ffce6c642286c085",
                                             "img": "https://s2.glbimg.com/zyaaSEbf4qZ6BNkc778luqyVhkE=/984x0/05cul-200-dvd2-d30-img01.jpg",
+                                            "trailer": "https://www.youtube.com/watch?v=4AKkpnCKa2I",
                                             "type": "filme"
                                         },{"...": "..."}]
                                     }
@@ -84,6 +85,7 @@
                                         "director_id": "6412f585ffce6c642286c084",
                                         "channel_id": "6412f5e1ffce6c642286c085",
                                         "img": "https://pt.wikipedia.org/wiki/Ficheiro:ReturnOfTheJediPoster1983.jpg",
+                                        "trailer": "https://www.youtube.com/watch?v=p4vIFhk621Q",
                                         "type": "filme"
                                     }
                                 }
@@ -670,6 +672,9 @@
                         "type": "string"
                     },
                     "img": {
+                        "type": "string"
+                    },
+                    "trailer": {
                         "type": "string"
                     },
                     "type": {
