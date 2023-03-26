@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-mongoose.connect('mongodb+srv://brrivolta:br260800@cluster0.c9swxgg.mongodb.net/moviesAndSeries')
+mongoose.connect(process.env.MONGO_ENV)
 
 let db = mongoose.connection
 
